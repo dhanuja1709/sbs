@@ -1,0 +1,23 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+file_path = r"C:\Users\Admin\Documents\myproject\employee.xlsx"
+
+# Read Excel
+df = pd.read_excel(file_path)
+
+# Print columns for debugging
+print("Columns in Excel:", df.columns.tolist())
+
+# Drop completely empty columns (optional)
+df = df.drop(columns=[col for col in df.columns if "Unnamed" in col])
+
+# Create a bar chart
+plt.figure(figsize=(10,6))
+plt.bar(df['Name'], df['Salary'], color='skyblue')
+plt.xlabel('Name')
+plt.ylabel('Salary')
+plt.title('Employee Salary Details')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()

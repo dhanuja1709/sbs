@@ -1,0 +1,42 @@
+def calculate_portfolio_value(portfolio):
+    total_value = 0
+    for stock in portfolio:
+        shares = stock['shares']
+        stock_price = stock['stock_price']
+        total_value += shares * stock_price
+    return total_value
+
+
+def main():
+    portfolio = []
+
+    while True:
+        stock_name = input("Enter the stock name (or 'done' to finish): ")
+
+        if stock_name == "done":
+            break
+
+        shares = int(input(f"Enter the number of shares for {stock_name}: "))
+        stock_price = float(input(f"Enter the current stock price for {stock_name}: "))
+
+        stock = {
+            'name': stock_name,
+            'shares': shares,
+            'stock_price': stock_price
+        }
+
+        portfolio.append(stock)
+
+    portfolio_value = calculate_portfolio_value(portfolio)
+
+    print("\nPortfolio Summary:")
+    for stock in portfolio:
+        print("Stock:", stock['name'],
+              "| Shares:", stock['shares'],
+              "| Current Price:", stock['stock_price'])
+
+    print("\nTotal Portfolio Value: $", portfolio_value)
+
+
+if __name__ == "__main__":
+    main()

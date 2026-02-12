@@ -1,0 +1,36 @@
+p = float(input("Enter principal amount: "))
+r = float(input("Enter the rate of interest per annum in %: "))
+t = int(input("Enter the number of years: "))
+
+# nit is number of installments (months)
+# mri is monthly rate of interest
+nit = t * 12
+mri = r / (12 * 100)
+
+# calculating the monthly EMI
+emi = p * mri * ((1 + mri) ** nit) / (((1 + mri) ** nit) - 1)
+
+print("\nMonthly EMI is:", round(emi, 2))
+
+# remaining principal (initially equal to principal)
+rpy = p
+
+print("**************************")
+print("\nEMI Schedule")
+print("**************************")
+print()
+
+for i in range(1, nit + 1):
+    minterest = round(rpy * mri, 2)
+    principal_pay = round(emi - minterest, 2)
+    rpy = round(rpy - principal_pay, 2)
+
+    print("Installment No:", i)
+    print("Monthly Interest:", minterest)
+    print("Principal Payment:", principal_pay)
+    print("Remaining Principal:", rpy)
+    print()
+
+"""
+We used round(variable, 2) to round float values to 2 decimal places.
+"""

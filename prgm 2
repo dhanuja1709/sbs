@@ -1,0 +1,31 @@
+import pandas as pd
+import openpyxl
+
+file_path = r"C:\Users\Admin\Documents\myproject\employee.xlsx"
+
+# Read Excel
+df = pd.read_excel(file_path)
+
+# Print column names to check
+print("Columns in Excel:", df.columns.tolist())
+
+# Use the correct column name from Excel ('salary')
+result = df[df['salary'] > 70000]
+print("\nEmployees with Salary > 70000:")
+print(result)
+
+# Load workbook
+workbook = openpyxl.load_workbook(file_path)
+worksheet = workbook.active
+
+# Delete cell B2
+worksheet['B2'] = None
+print("\nDeleted data in B2")
+
+# Update cell D3
+worksheet['D3'] = 120000
+print("Updated data in D3")
+
+# Save changes
+workbook.save(file_path)
+print("\nChanges saved successfully")

@@ -1,0 +1,16 @@
+income = float(input("Enter your monthly income: "))
+expenses = float(input("Enter your monthly expenses: "))
+
+savings = income - expenses
+
+print("\nMonthly Financial Summary:")
+print("Income:", income)
+print("Expenses:", expenses)
+print("Savings:", savings)
+
+if savings > 0:
+    print("Congratulations! You have savings this month.")
+elif savings < 0:
+    print("Expenses exceed income")
+else:
+    print("No savings")

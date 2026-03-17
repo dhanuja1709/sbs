@@ -1,0 +1,19 @@
+ledger = []
+total = 0
+
+while True:
+    item = input("Item (done to stop): ")
+    if item == "done":
+        break
+
+    q = int(input("Qty: "))
+    p = float(input("Price: "))
+
+    cost = q * p
+    total += cost
+    ledger.append([item, q, p, cost])
+
+for i in ledger:
+    print(i)
+
+print("Total Cost:", total)

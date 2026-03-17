@@ -1,0 +1,8 @@
+prices = [100, 105, 110, 115, 120]
+n = 3
+
+print("Stock Prices:", prices)
+print("Moving Average:")
+
+for i in range(len(prices) - n + 1):
+    print(sum(prices[i:i+n]) / n)
